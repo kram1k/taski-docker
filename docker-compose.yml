@@ -1,9 +1,7 @@
-# Файл docker-compose.yml
 version: '3'
 
 volumes:
   pg_data:
-  # Новый volume — для статических файлов
   static:
 
 services:
@@ -23,7 +21,6 @@ services:
     build: ./frontend/
   gateway:
     build: ./gateway/
-    # А тут подключаем volume со статикой к gateway
     volumes:
       - static:/staticfiles/
     ports:
